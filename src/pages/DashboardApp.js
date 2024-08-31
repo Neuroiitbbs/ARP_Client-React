@@ -1,3 +1,4 @@
+import { useNavigate } from 'react-router-dom';
 // material
 import { Box, Grid, Container, Typography } from '@mui/material';
 import PropTypes from 'prop-types';
@@ -19,6 +20,10 @@ function Capitalize(name) {
 }
 
 export default function DashboardApp({ user }) {
+  const navigate = useNavigate();
+  if (!user) {
+    navigate('/app');
+  }
   return (
     <Page title="Main Page | ARP">
       <Container maxWidth="xl">

@@ -1,6 +1,6 @@
 /* eslint-disable react/prop-types */
 import { createContext, useEffect, useState } from 'react';
-import { GoogleAuthProvider, signOut, signInWithRedirect } from 'firebase/auth';
+import { GoogleAuthProvider, signOut, signInWithRedirect, signInWithPopup } from 'firebase/auth';
 import { doc, getDoc } from 'firebase/firestore';
 import { auth, db } from '../firebaseConfig';
 
@@ -16,7 +16,7 @@ export const AuthContextProvider = ({ children }) => {
   const getUser = () => auth.currentUser;
 
   const googleLogin = () => {
-    signInWithRedirect(auth, googleProvider);
+    signInWithPopup(auth, googleProvider);
   };
 
   const googleLogout = () => {
@@ -40,6 +40,7 @@ export const AuthContextProvider = ({ children }) => {
 
   useEffect(() => {
     const unsubscribe = auth.onAuthStateChanged(async (user) => {
+      console.log(user);
       if (user) {
         const role = await getUserRole(user.email);
         const updatedUser = { ...user, role };

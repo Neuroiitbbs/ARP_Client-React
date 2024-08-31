@@ -3,6 +3,7 @@ import { Navigate, useRoutes } from 'react-router-dom';
 // layouts
 import DashboardLayout from './layouts/dashboard';
 // pages
+import LoginPage from './login';
 import DashboardApp from './pages/DashboardApp';
 import CoursePage from './pages/CoursePage';
 import BranchPage from './pages/BranchPage';
@@ -25,7 +26,8 @@ export default function Router() {
       element: <DashboardLayout user={user} />,
       children: [
         { element: <Navigate to="/app" replace /> },
-        { path: 'app', element: <DashboardApp user={user} /> },
+        { path: 'app', element: <LoginPage user={user} /> },
+        { path: 'dashboard', element: <DashboardApp user={user} /> },
         { path: 'branch/:name', element: <BranchPage /> },
         { path: 'course/:code', element: <CoursePage /> },
         { path: 'upload', element: <Upload user={user} /> },
