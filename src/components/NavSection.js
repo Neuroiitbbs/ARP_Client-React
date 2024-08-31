@@ -164,7 +164,7 @@ export default function NavSection({ navConfig, user, ...other }) {
     <Box {...other}>
       <List disablePadding>
         {navConfig.map((item) =>
-          item.role.includes(userRole) ? (
+          item.role.includes(userRole) && user ? (
             <NavItem key={item.title} item={item} active={match} />
           ) : null
         )}

@@ -79,6 +79,14 @@ export const branches = [
     subtitle: 'IDT Courses',
     code: 'ID'
   },
+  // {
+  //   show: true,
+  //   color: 'info',
+  //   icon: 'cse',
+  //   title: 'Firstyear',
+  //   subtitle: 'test',
+  //   code: 'FirstYear'
+  // },
   { show: false, title: 'MA', subtitle: 'Maths', code: 'MA' },
   { show: false, title: 'PH', subtitle: 'Physics', code: 'PH' },
   { show: false, title: 'CY', subtitle: 'Chemistry', code: 'CY' },
